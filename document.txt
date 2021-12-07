@@ -1,0 +1,73 @@
+Features
+-users can sign into the app with their email and password
+
+-users can create recipes with ingredients and instructions
+
+-recipes can be marked as public or private
+
+-users can view other people’s recipes
+
+-ingredients from recipes can be added to user’s grocery lists
+
+-users can create their own occasions and assign recipes to occasions
+
+
+Brainstorm:
+
+    -first name
+    -last name
+    -username
+    -password
+    -user email
+    -recipes
+    -public or private 
+    -author of recipe
+    -all recipes by author
+    -keep track of all occasions
+    -author of occasion
+    -ingredients
+    -instructions for recipes
+    -grocery list
+
+Tables:
+
+    - Users: will hold all user data
+        -first name
+        -last name
+        -email
+        -username
+        -password
+    - Recipes: will hold all recipes
+        -author (ref Users)
+        -ingredients
+        -instructions
+        -public or private (boolean)
+    - Occasions: collection of recipes
+        -author(ref Users)
+        -recipes (ref Recipes)
+        -public or private(boolean)
+    **- Grocery list
+        -recipe ingredients 
+        - user id 
+        
+
+Relationships:
+    - One to one:
+        
+    - Many to many:
+        ingredients => recipes ; ingredients can be used in many recipes, recipes can use many ingredients
+        User => Recipes(public) ; users can have many recipes(public), recipes can be used by many users
+        recipes => occasions recipes can appear in many occasions, occasions can have many recipes
+    - One to many:
+        User => Recipes(private); users can have many recipes(private), a private recipe can have one user
+        User => Grocery list ; one user can have many grocery lists, grocery lists should only have one user
+
+Columns:
+    Users:
+        each column will contain correlating data to the row it is in
+    Recipes:
+        columns would have correlating data to the row its in
+    Occasions:
+        columns would have correlating data to the row its in
+    Grocery list:
+        columns would have correlating data to the row its in
